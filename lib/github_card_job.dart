@@ -19,28 +19,61 @@ class GithubJobCard extends StatefulWidget {
 class _GithubJobCardState extends State<GithubJobCard> {
 
   
-  createTitleCompany(context){
-     String text =  widget.job.company.length>32?widget.job.company.substring(0,32):widget.job.company;
+  getImageByValidURL(context , url){
+    if(url) return Image.network(url,width:64,height: 64, );
+    else  return Container();
+     
+  }
 
+  createTitleCompany(context)
+  {
+     String text =  widget.job.company.length>32?widget.job.company.substring(0,32):widget.job.company;
+    
      return 
      Padding(
      padding: EdgeInsets.all(6.0),
      child:Container(
        width: MediaQuery.of(context).size.width * 0.90,
-       height: 120 * 0.20 ,
+      
        ///color: Colors.red,
        child:Row
        (
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: <Widget>[
-           Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,))
-         ],
+          Flexible(child: Padding(padding: EdgeInsets.only(left:10, top:20),child:Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21,))),
+           /// getImageByValidURL(context , widget.job.company_logo)
+          )],
        )
      )
      );
   }
   
 
-  createCompanyDetail(context)=>Container();
+  createCompanyDetail(context){
+     String text =  widget.job.title;
+     String text2 =  widget.job.location.toString();
+     if(text.length > 48)
+        text = text.substring(0, 38);
+   
+
+     return  Container(
+       width: MediaQuery.of(context).size.width * 0.90,
+      
+       ///color: Colors.red,
+       child:Column
+       (
+         mainAxisAlignment: MainAxisAlignment.start,
+         crossAxisAlignment: CrossAxisAlignment.start,
+         children: <Widget>[
+           Padding(padding: EdgeInsets.only(left:15, top:5),child:Text(text,overflow: TextOverflow.clip, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16))),
+           Padding(padding: EdgeInsets.only(left:15, top:2),child:Text(text2,overflow: TextOverflow.clip, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16))),
+           
+         ],
+       )
+     )
+      ;
+
+  }
 
   createApplicationBottom(context) => Container();
 
@@ -52,18 +85,20 @@ class _GithubJobCardState extends State<GithubJobCard> {
          width: MediaQuery.of(context).size.width * 0.98,
          height: 180.0,
          decoration: BoxDecoration(
-           color: Colors.yellowAccent,
-           borderRadius: BorderRadius.circular(20.0)),
+           color: Colors.white10,
+           borderRadius: BorderRadius.circular(20.0),
+           border: Border.all(color:Color.fromARGB(255, 0, 0, 0),width: 1)
+           ),
+           
          child: 
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+               Column(
+                 mainAxisAlignment: MainAxisAlignment.start,
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: <Widget>[
                        createTitleCompany(context),
                         createCompanyDetail(context),
                         createApplicationBottom(context),
-                      // Text(widget.job.company, overflow: TextOverflow.clip,),
-                      // Text("Date of publication: ", overflow: TextOverflow.clip,), 
+  
                  ],)
          
          ,

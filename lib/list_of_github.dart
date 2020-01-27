@@ -14,39 +14,73 @@ class GitHubJobsList extends StatefulWidget {
 }
 
 class _GitHubJobsListState extends State<GitHubJobsList> {
-  Future<GitHubJob> jobs;
-
+ 
   @override
   void initState() {
-    jobs = fetchJobs();
-
+  
     super.initState();
   }
 
-  Future fetchJobs() async {
+  Future<dynamic> fetchJobs() async {
     var result = await http.get('https://jobs.github.com/positions.json');
-    ///print(result.body);
-    return json.decode(result.body);
+    print(result.body);
+    return result.body;
   }
 
-  Widget GithubJobWidget() {
-    return FutureBuilder(
-      builder: (context, projectSnap) {
-        if (projectSnap.connectionState == ConnectionState.none &&
-            projectSnap.hasData == null) {
+  getListOfFuture(){
+
+     var future = null;
+     try{
+        future = FutureBuilder(
+        builder: (context, result) {
+        
+        if(result.connectionState == ConnectionState.waiting)
+           {
+                 return Center(child:Text("Waiting for data..."));
+
+           }
+        
+        
+        if (result.connectionState == ConnectionState.none &&
+            result.hasData == null) {
           //print('project snapshot data is: ${projectSnap.data}');
           return Container();
         }
-        return ListView.builder(
-          itemCount: projectSnap.data.length,
+        
+          dynamic json = jsonDecode(result.data);
+          var len = json.length;
+
+          return 
+
+
+          ListView.builder(
+          itemCount: len,
           itemBuilder: (context, index) {
-            GitHubJob project = GitHubJob.fromJson(projectSnap.data[index]);
+            GitHubJob project = GitHubJob.fromJson(json[index]);
             return GithubJobCard(project);
           },
         );
+       
       },
       future: fetchJobs(),
     );
+     }catch(ex){
+        future = Text("Invalid Future");
+     }
+     finally{
+       return future;
+     }
+  }
+
+
+  Widget githubJobWidget() {
+    return  
+     Stack(
+       children: <Widget>[
+            getListOfFuture(),
+           //// Positioned(bottom: 100,child: Container(child:Text("Reload"),color:Colors.red),)
+       ]
+     );
   }
 
   @override
@@ -56,7 +90,7 @@ class _GitHubJobsListState extends State<GitHubJobsList> {
         title: Text('GitHubTest?'),
       ),*/
       body:
-       GithubJobWidget(),
+       githubJobWidget(),
     );
   }
 }

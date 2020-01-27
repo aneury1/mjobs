@@ -24,7 +24,10 @@ class GitHubJob {
       this.how_to_apply,
       this.company_logo});
 
+      GitHubJob.empty();
+
   factory GitHubJob.fromJson(Map<String, dynamic> json) {
+   
     return GitHubJob(
       id: json['id'],
       type: json['type'],
