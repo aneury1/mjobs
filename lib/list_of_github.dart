@@ -37,9 +37,10 @@ class _GitHubJobsListState extends State<GitHubJobsList> {
         if(result.connectionState == ConnectionState.waiting)
            {
                  return Center(child:Text("Waiting for data..."));
-
            }
-        
+         if(result.connectionState== ConnectionState.active){
+             return Text("Waiting for data...");
+           }
         
         if (result.connectionState == ConnectionState.none &&
             result.hasData == null) {
