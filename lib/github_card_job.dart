@@ -110,7 +110,9 @@ class _GithubJobCardState extends State<GithubJobCard> {
 
   createApplicationBottom(context){
      return GestureDetector(
-           onTap:(){},
+           onTap:(){
+                 Navigator.pushNamed(context,'/detailgithub', arguments: widget.job);
+           },
            child:Container(
              margin: EdgeInsets.only(top:  20.0, left:24.0),
              width: MediaQuery.of(context).size.width * 0.80,

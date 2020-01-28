@@ -74,14 +74,32 @@ class _RootRouteState extends State<RootRoute> {
                 TextSpan(text: " !! "          , style: TextStyle(fontWeight: FontWeight.w500, color:Colors.blueAccent, fontSize: 23)  ),
                 TextSpan(text: " With US"          , style: TextStyle(fontSize  :30.0,fontWeight: FontWeight.bold, color:Colors.blueGrey,)  ),
                 TextSpan(text: " Please use this app to find it:"          , style: TextStyle(fontSize  :30.0,fontWeight: FontWeight.bold, color:Colors.black87,)  ),
-                 TextSpan(text:"\n\n use the option bellow in order to find it."          , style: TextStyle(fontSize :14.0,fontWeight: FontWeight.bold, color:Colors.black,)  ),
+                TextSpan(text:"\n\n touch the image bellow in order to find it."          , style: TextStyle( fontSize :14.0,fontWeight: FontWeight.bold, color:Colors.black,)  ),
               ]
             )
           ,)
           )
           ),
            SizedBox(height:10),
- 
+           GestureDetector(
+             onTap: (){
+                  Navigator.of(context).pushNamed('/github');
+
+             },
+             child: Container(
+               width:200.0,
+               decoration: BoxDecoration(border: Border.all(color: Color.fromARGB(100,0,0,0), width: 2)),
+               margin: EdgeInsets.only(top:20,),
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 children: <Widget>[
+                  ClipRRect( borderRadius: new BorderRadius.circular(80.0), child: Image.asset("assets/images/Octocat.jpg" ,width: 100,height: 100),)
+               ],),
+           )),
+
+   
+
          
          ],
        )
