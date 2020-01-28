@@ -34,6 +34,9 @@ class _GitHubJobsListState extends State<GitHubJobsList> {
         future = FutureBuilder(
         builder: (context, result) {
         
+         if(result.hasError){
+           return  Center(child:Text("Waiting for data..."));
+         }
         if(result.connectionState == ConnectionState.waiting)
            {
                  return Center(child:Text("Waiting for data..."));
