@@ -3,6 +3,7 @@ import './list_of_github.dart';
 
 import './routes/root_route.dart';
 import './routes/router_details_git.dart';
+import 'list_of_stackoverflow.dart';
 
 
 void main() => runApp(MyApp());
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget
                 '/' : (context) => RootRoute(),
                 '/github' : (context)=>GitHubJobsList(),
                 '/detailgithub': (context)=>GithubJobDetail(),
+                '/stackoverflow': (context)=>ListOfStackOverFlowJobs(),
              },
              initialRoute: '/',
 

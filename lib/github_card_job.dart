@@ -90,67 +90,70 @@ class _GithubJobCardState extends State<GithubJobCard> {
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 16))),
             Padding(
-                padding: EdgeInsets.only(left: 15, top: 2),
-                child: RichText(
-                  text: TextSpan(children: <TextSpan>[
-                    TextSpan(
-                        text: "Github URL: \n",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black45)),
-                    TextSpan(
-                        text: company_url,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black))
-                  ]),
-                ))
+                padding: EdgeInsets.only(left: 15.0, top: 2.0),
+                child: Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: RichText(
+                      text: TextSpan(children: <TextSpan>[
+                        TextSpan(
+                            text: "Github URL: \n",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black45)),
+                        TextSpan(
+                            text: company_url,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black))
+                      ]),
+                    )))
           ],
         ));
   }
 
-  createApplicationBottom(context){
-     return GestureDetector(
-           onTap:(){
-                 Navigator.pushNamed(context,'/detailgithub', arguments: widget.job);
-           },
-           child:Container(
-             margin: EdgeInsets.only(top:  20.0, left:24.0),
-             width: MediaQuery.of(context).size.width * 0.80,
-             height: 48.0,
-             decoration: BoxDecoration(color: Color.fromARGB(255, 59, 50, 237),borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                child: Text("View Job", style: TextStyle(color:Colors.white, fontSize: 23),)
-              )
-           )
-     );
-   
-
+  createApplicationBottom(context) {
+    return GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/detailgithub', arguments: widget.job);
+        },
+        child: Container(
+            margin: EdgeInsets.only(top: 20.0, left: 24.0),
+            width: MediaQuery.of(context).size.width * 0.80,
+            height: 48.0,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 59, 50, 237),
+                borderRadius: BorderRadius.circular(10)),
+            child: Center(
+                child: Text(
+              "View Job",
+              style: TextStyle(color: Colors.white, fontSize: 23),
+            ))));
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10.0),
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.98,
-        
-        decoration: BoxDecoration(
-            color: Colors.white10,
-            borderRadius: BorderRadius.circular(20.0),
-            border: Border.all(color: Color.fromARGB(255, 0, 0, 0), width: 1)),
-        child: Padding( 
-          padding: EdgeInsets.only(top:10.0, bottom: 10.0),
-          child:Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            createTitleCompany(context),
-            createCompanyDetail(context),
-            createApplicationBottom(context),
-          ],
-        ),
-      ),
-    )
-    );
+        padding: EdgeInsets.all(10.0),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.98,
+          decoration: BoxDecoration(
+              color: Colors.white10,
+              borderRadius: BorderRadius.circular(20.0),
+              border:
+                  Border.all(color: Color.fromARGB(255, 0, 0, 0), width: 1)),
+          child: Padding(
+            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                createTitleCompany(context),
+                createCompanyDetail(context),
+                createApplicationBottom(context),
+                SizedBox(height: 20.0,),
+              ],
+            ),
+          ),
+        ));
   }
 }

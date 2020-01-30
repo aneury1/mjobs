@@ -60,31 +60,45 @@ class _RootRouteState extends State<RootRoute> {
            child: getFutureBuildLogo(context),///Image.asset('assets/images/job_search.png', width: width * 0.50 , height: height * 0.20,)
           ) , 
 
-          SizedBox(height: 64.0,),
+          SizedBox(height: 32.0,),
+         /// Center(child:Text( "Mobile Jobs\n\n", style:TextStyle(fontFamily: 'Eroded', fontSize: 24.0, fontWeight: FontWeight.bold,color:Colors.black))),
+         
           Container(
-          padding: EdgeInsets.only(left:20.43, top:10.0),
+          padding: EdgeInsets.only(left:20.43),
           child: 
           Center(child:
           RichText(
             text:TextSpan(
               style:TextStyle(fontSize: 20, color:Colors.black,),
               children:[
-                TextSpan(text: "Launch your", ),
-                TextSpan(text: " Dream Job "   , style: TextStyle(fontWeight: FontWeight.bold)  ),
-                TextSpan(text: " !! "          , style: TextStyle(fontWeight: FontWeight.w500, color:Colors.blueAccent, fontSize: 23)  ),
-                TextSpan(text: " With US"          , style: TextStyle(fontSize  :30.0,fontWeight: FontWeight.bold, color:Colors.blueGrey,)  ),
-                TextSpan(text: " Please use this app to find it:"          , style: TextStyle(fontSize  :30.0,fontWeight: FontWeight.bold, color:Colors.black87,)  ),
-                TextSpan(text:"\n\n touch the image bellow in order to find it."          , style: TextStyle( fontSize :14.0,fontWeight: FontWeight.bold, color:Colors.black,)  ),
+                TextSpan(text:"Dev Jobs Sites\n\n", style:TextStyle(fontFamily: 'Eroded', fontSize: 28.0, fontWeight: FontWeight.bold,color:Colors.black) ),
+              ]
+            )
+          ,)
+          )
+          ),
+         
+          Container(
+          padding: EdgeInsets.only(left:20.43),
+          child: 
+          Center(child:
+          RichText(
+            text:TextSpan(
+              style:TextStyle(fontSize: 20, color:Colors.black,),
+              children:[
+                TextSpan(text: "Select one of the option bellow:",style: TextStyle(fontWeight: FontWeight.bold) ),
               ]
             )
           ,)
           )
           ),
            SizedBox(height:10),
+         
+
+
            GestureDetector(
              onTap: (){
                   Navigator.of(context).pushNamed('/github');
-
              },
              child: Container(
                width:200.0,
@@ -96,10 +110,32 @@ class _RootRouteState extends State<RootRoute> {
                  children: <Widget>[
                   ClipRRect( borderRadius: new BorderRadius.circular(80.0), child: Image.asset("assets/images/Octocat.jpg" ,width: 100,height: 100),)
                ],),
-           )),
-
-   
-
+           )
+           ),///github provider..
+ 
+         
+           GestureDetector(
+             onTap: (){
+                  Navigator.of(context).pushNamed('/stackoverflow');
+             },
+             child: Container(
+               width:200.0,
+               decoration: BoxDecoration(border: Border.all(color: Color.fromARGB(100,0,0,0), width: 2)),
+               margin: EdgeInsets.only(top:20,),
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 children: <Widget>[
+                  ClipRRect( borderRadius: new BorderRadius.circular(80.0), child: Image.asset("assets/images/so-icon.png" ,width: 100,height: 100),)
+               ],),
+           )
+           ),///github provider..
+ 
+         
+         
+         
+         
+         
          
          ],
        )
