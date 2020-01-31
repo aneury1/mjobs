@@ -1,4 +1,4 @@
-package com.example.mjobs
+package com.simpletran.mjobs
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
