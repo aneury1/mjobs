@@ -71,7 +71,7 @@ class _RootRouteState extends State<RootRoute> {
             text:TextSpan(
               style:TextStyle(fontSize: 20, color:Colors.black,),
               children:[
-                TextSpan(text:"Dev Jobs Sites\n\n", style:TextStyle(fontFamily: 'Eroded', fontSize: 28.0, fontWeight: FontWeight.bold,color:Colors.black) ),
+                TextSpan(text:"Dev Jobs Sites\n\n", style:TextStyle(/*fontFamily: 'Eroded',*/ fontSize: 28.0, fontWeight: FontWeight.bold,color:Colors.black) ),
               ]
             )
           ,)
@@ -86,7 +86,7 @@ class _RootRouteState extends State<RootRoute> {
             text:TextSpan(
               style:TextStyle(fontSize: 20, color:Colors.black,),
               children:[
-                TextSpan(text: "Select one of the option bellow:",style: TextStyle(fontWeight: FontWeight.bold) ),
+                TextSpan(text: "Select one of the options below:",style: TextStyle(fontWeight: FontWeight.bold) ),
               ]
             )
           ,)

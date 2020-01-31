@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mjobs/stack_overflow_options.dart';
 import './list_of_github.dart';
 
 import './routes/root_route.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget
                 '/' : (context) => RootRoute(),
                 '/github' : (context)=>GitHubJobsList(),
                 '/detailgithub': (context)=>GithubJobDetail(),
-                '/stackoverflow': (context)=>ListOfStackOverFlowJobs(),
+                '/stackoverflow' : (context)=>StackOverFlowSelector(),
+                '/list-stackoverflow': (context)=>ListOfStackOverFlowJobs(),
              },
              initialRoute: '/',
 
